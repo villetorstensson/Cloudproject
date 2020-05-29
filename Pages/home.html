@@ -7,6 +7,32 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 </head>
 
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBAerJjvpsq-XIpPdbXGLN5PZSugYwyDyk",
+    authDomain: "cloudproject-277415.firebaseapp.com",
+    databaseURL: "https://cloudproject-277415.firebaseio.com",
+    projectId: "cloudproject-277415",
+    storageBucket: "cloudproject-277415.appspot.com",
+    messagingSenderId: "369335430723",
+    appId: "1:369335430723:web:1f5b78232ba8f25889aef6",
+    measurementId: "G-PHTG5R27JM"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+
+
 <body>
     <div id="page-container">
         <div id="content-wrap"> 
@@ -25,4 +51,25 @@
         </div>
     </div>
         </body>
+
+
+
+
+        <script>
+            var folder = "../Resources/images";
+    
+    $.ajax({
+    url : folder,
+    success: function (data) {
+    $(data).find("a").attr("href", function (i, val) {
+     if( val.match(/\.(jpe?g|png|gif)$/) ) { 
+         $("div1").append( "<img src='" + val +"'>" );
+     } 
+    });
+    }
+    });
+         </script>
+
+
+
         </html>

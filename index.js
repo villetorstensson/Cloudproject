@@ -3,6 +3,20 @@
  */
 "use strict";
 
+
+// Set the configuration for your app
+  // TODO: Replace with your project's config object
+  var config = {
+    apiKey: "AIzaSyBAerJjvpsq-XIpPdbXGLN5PZSugYwyDyk",
+    authDomain: "cloudproject-277415.firebaseapp.com",
+    databaseURL: "https://cloudproject-277415.firebaseio.com",
+    storageBucket: "cloudproject-277415.appspot.com"
+  };
+  firebase.initializeApp(config);
+
+  // Get a reference to the database service
+  var database = firebase.database();
+
 // Enable server to run on port selected by the user selected
 // environment variable DBWEBB_PORT
 const port = process.env.DBWEBB_PORT || 1337;
@@ -10,6 +24,9 @@ const port = process.env.DBWEBB_PORT || 1337;
 // Set upp Express server
 const express = require("express");
 const app = express();
+var admin = require("firebase-admin");
+var db = admin.database();
+var ref = db.ref("server/saving-data/fireblog/posts");
 
 // This is middleware called for all routes.
 // Middleware takes three parameters.
@@ -22,6 +39,12 @@ app.use((req, res, next) => {
 
 // Add a route for the path /
 app.get("/", (req, res) => {
+    ref.on("value", function(snapshot) {
+        console.log(snapshot.val());
+      }, function (errorObject) {
+        console.log("The read failed: " + errorObject.code);
+      });
+      
     res.send("Hello World");
 });
 
@@ -41,4 +64,17 @@ app.listen(port, () => {
             console.info(r.route.path);
         }
     });
+
+
+
+
+
+
+    function readData() {
+        firebase.database().ref('/').once({
+        });
+      }
+      
+
+
 });
