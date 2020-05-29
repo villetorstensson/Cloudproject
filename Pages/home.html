@@ -3,18 +3,12 @@
 <head>
     <title>Home page</title>
     <meta charset="utf-8" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <link rel="stylesheet" href="../Css/default.css" />
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-</head>
-
-
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script>
-
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-database.js"></script>
 <script>
   // Your web app's Firebase configuration
   var firebaseConfig = {
@@ -29,8 +23,12 @@
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
+  
 </script>
+</head>
+
+
+
 
 
 <body>
@@ -47,29 +45,66 @@
                     
                 </nav class="nav">
             </header>
+<div1>
 
+    </div1>
         </div>
     </div>
-        </body>
 
-
-
-
-        <script>
-            var folder = "../Resources/images";
     
-    $.ajax({
-    url : folder,
-    success: function (data) {
-    $(data).find("a").attr("href", function (i, val) {
-     if( val.match(/\.(jpe?g|png|gif)$/) ) { 
-         $("div1").append( "<img src='" + val +"'>" );
-     } 
-    });
-    }
-    });
-         </script>
 
 
 
+
+
+
+
+
+<script type="text/javascript">
+
+$(document).ready(() => {
+const database = firebase.database();
+
+var ref = database.ref('CloudProject/').limitToLast(10);
+
+ref.on('value', function(snapshot) {
+    snapshot.forEach(function(keysSnapshot){
+       
+    $("div1").append( "<img src='data:image/jpeg;base64," + keysSnapshot.val().image +"'>" );
+   
+        console.info(keysSnapshot.val().image);
+    })
+});
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+//<script>
+    //        var folder = "../Resources/images";
+    
+   // $.ajax({
+ //   url : folder,
+  //  success: function (data) {
+   // $(data).find("a").attr("href", function (i, val) {
+ //    if( val.match(/\.(jpe?g|png|gif)$/) ) { 
+   //      $("div1").append( "<img src='" + val +"'>" );
+  //   } 
+  //  });
+  //  }
+  //  });
+     //    </script>
+
+
+        </body>
         </html>
