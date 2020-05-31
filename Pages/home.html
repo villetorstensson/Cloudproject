@@ -72,9 +72,10 @@ ref.on('value', function(snapshot) {
        
     $("div1").append( '<img style="width: 400px;text-align: center;padding-left: 180px;padding-top: 20px;" src="data:image/jpeg;base64, ' + keysSnapshot.val().image +'">' );
     $("div1").append( '<label style="display: block;padding-left: 180px;">'+ 'Comment: '+ keysSnapshot.val().comment+'</label>' );    
-    $("div1").append( '<label style="display: block;padding-left: 180px;">'+ 'Coords: '+ keysSnapshot.val().position+'</label>' ); 
+    $("div1").append( '<label style="display: block;padding-left: 180px;">'+ 'Coords: '+ keysSnapshot.val().position+'</label>' );
     $("div1").append( '<button style="padding-top: 20px;padding-bottom: 20px;padding-right: 30px;color: black;text-align: start;display: inline-block;padding-left: 30px;margin-left: 181px;weight=0%;">Accept</button>' ); 
-    $("div1").append( '<button style="padding-top: 20px;padding-bottom: 20px;padding-right: 30px;color: black;text-align: start;display: inline-block;padding-left: 30px;margin-left: 200px;weight=0%;">Remove</button>' ); 
+    $("div1").append( '<form action="/delete" method="post" style="display: inline-block"><input type="hidden" required="" name="snapshot" value="'+keysSnapshot.key+'"><input type="submit" class="" name="Delete file" value="Remove" style="padding-top: 20px;padding-bottom: 20px;padding-right: 30px;color: black;text-align: start;display: inline-block;padding-left: 30px;margin-left: 200px;weight=0%;"></form>' );
+   // $("div1").append( '<form action="/delete" method="post" ><input type="submit" value = "'+snapshot.val()+'" style="padding-top: 20px;padding-bottom: 20px;padding-right: 30px;color: black;text-align: start;display: inline-block;padding-left: 30px;margin-left: 200px;weight=0%;">Remove</button></form>' ); 
         console.info(keysSnapshot.val().image);
     })
 });
