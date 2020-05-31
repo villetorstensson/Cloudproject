@@ -7,11 +7,7 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script>
-
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-auth.js"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
 <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
 
@@ -32,28 +28,18 @@
                 </nav class="nav">
             </header>
 
-            <form action="action_page.php" method="post">
-                <div class="imgcontainer">
-                  <img src="../Images/login.png" alt="Avatar" class="avatar">
-                </div>
-              
-                <div class="container">
-                  <label for="uname"><b>Username</b></label>
-                  <input type="text" placeholder="Enter Username" name="uname" required>
-              
-                  <label for="psw"><b>Password</b></label>
-                  <input type="password" placeholder="Enter Password" name="psw" required>
-              
-                  <button type="submit">Login</button>
-                  
-                </div>
-              
-                <div class="container" style="background-color:grey">
 
-                  </div>
-              </form>
 
-        </div>
-    </div>
+<!-- The surrounding HTML is left untouched by FirebaseUI.
+     Your app may use that space for branding, controls and other customizations.-->
+     <h1>Welcome to My Awesome App</h1>
+     <div id="firebaseui-auth-container"></div>
+     <div id="loader">Loading...</div>
+     
+
+   <!---  <script src="../app.js"></script>-->
+   <script src="../app.js"></script>
+     <script src="../login.js"></script>
+
         </body>
         </html>

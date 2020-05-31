@@ -1,4 +1,4 @@
-var app_firebase = {};
+
 (function() {
 
   // Your web app's Firebase configuration
@@ -14,6 +14,5 @@ var app_firebase = {};
      };
   // Initialize Firebase
      firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
-     app_firebase = firebase;
+     
 })()

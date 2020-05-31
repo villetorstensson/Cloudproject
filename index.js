@@ -10,7 +10,7 @@ const port = process.env.DBWEBB_PORT || 1337;
 // Set upp Express server
 const express = require("express");
 const app = express();
-
+var path = require("path");
 // This is middleware called for all routes.
 // Middleware takes three parameters.
 // Its callback ends with a call to next() to proceed to the next
@@ -19,19 +19,14 @@ app.use((req, res, next) => {
     console.info(`Got request on ${req.path} (${req.method}).`);
     next();
 });
-// Firebase App (the core Firebase SDK) is always required and
-// must be listed before other Firebase SDKs
-var firebase = require("firebase/app");
-
-// Add the Firebase products that you want to use
-require("firebase/auth");
-require("firebase/firestore");
 
 // Add a route for the path /
 app.get("/", (req, res) => {
     res.send("Hello World");
 });
-
+app.get("/login", (req, res) => {
+    res.sendFile(path.join(__dirname+'/Pages/login.html'));
+});
 // Add a route for the path /about
 app.get("/about", (req, res) => {
     res.send("About something");
