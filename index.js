@@ -22,6 +22,7 @@ var fs = require("fs");
 // Middleware takes three parameters.
 // Its callback ends with a call to next() to proceed to the next
 // middleware, or the actual route.
+app.use('/', express.static(__dirname));
 app.use((req, res, next) => {
     console.info(`Got request on ${req.path} (${req.method}).`);
     next();
@@ -33,10 +34,6 @@ app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname+'/Pages/home.html'));
 });
 // Add a route for the path /about
-app.get("/about", (req, res) => {
-  
-    res.sendFile(path.join(__dirname+'/pages/arbete.html'));
-});
 
 // Start up server and begin listen to requests
 app.listen(port, () => {
@@ -53,16 +50,6 @@ app.listen(port, () => {
 
 
     
-      
-
-
-    function readData() {
-        return firebase.database().ref('/Posts').limitToLast(10).then(function(snapshot) {
-        //var username = (snapshot.val() && snapshot.val().username) || 'Anonymous';
-        console.info(snapshot.val());
-      });
-      }
-      
-
+     
 
 });
