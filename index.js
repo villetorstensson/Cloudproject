@@ -31,7 +31,7 @@ app.use((req, res, next) => {
 // Add a route for the path /
 app.get("/", (req, res) => {
     
-    res.sendFile(path.join(__dirname+'/Pages/home.html'));
+    res.sendFile(path.join(__dirname+'/Pages/login.html'));
 });
 // Add a route for the path /about
 
