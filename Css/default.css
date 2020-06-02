@@ -7,6 +7,20 @@
     padding-bottom: 6.5rem;
     
 }
+
+h3 {
+    font-size: 30px;
+    text-align:center;
+    text-shadow: 2px 2px 5px white;
+}
+
+.logo {
+    display:block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 20%;
+
+}
 html{
     font-family: Calibri,Candara,Segoe,Segoe UI,Optima,Arial,sans-serif; 
     
